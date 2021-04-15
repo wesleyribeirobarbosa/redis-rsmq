@@ -1,0 +1,68 @@
+{
+  "name": "rsmq",
+  "description": "A really simple message queue based on Redis",
+  "version": "0.12.3",
+  "license": "MIT",
+  "author": "P. Liess <smrchy+npm@gmail.com>",
+  "engines": {
+    "node": "> 6.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "mocha ./test/test.js",
+    "start:consumer1": "node ./mq/consumer/consumer1.js",
+    "start:consumer2": "node ./mq/consumer/consumer2.js",
+    "start:consumer3": "node ./mq/consumer/consumer3.js",
+    "start:consumer4": "node ./mq/consumer/consumer4.js",
+    "start:consumer5": "node ./mq/consumer/consumer5.js",
+    "start:consumer6": "node ./mq/consumer/consumer6.js",
+    "start:consumer7": "node ./mq/consumer/consumer7.js",
+    "start:consumer8": "node ./mq/consumer/consumer8.js",
+    "start:producer1": "node ./mq/producer/producer1.js",
+    "start:producer2": "node ./mq/producer/producer2.js",
+    "start:producer3": "node ./mq/producer/producer3.js",
+    "start:producer4": "node ./mq/producer/producer4.js",
+    "start:producer5": "node ./mq/producer/producer5.js",
+    "start:producer6": "node ./mq/producer/producer6.js",
+    "start:producer7": "node ./mq/producer/producer7.js",
+    "start:producer8": "node ./mq/producer/producer8.js",
+    "start": "concurrently npm:start:*"
+  },
+  "dependencies": {
+    "@types/redis": "^2.8.28",
+    "concurrently": "^6.0.2",
+    "lodash": "^4.17.20",
+    "redis": "^3.0.2",
+    "redis-smq-monitor": "^1.1.5",
+    "rsmq": "^0.12.3"
+  },
+  "devDependencies": {
+    "async": "^3.2.0",
+    "coffeescript": "^2.5.1",
+    "mocha": "^7.0.1",
+    "should": "^13.2.3",
+    "ts-loader": "^6.2.1",
+    "typescript": "4.1.3"
+  },
+  "keywords": [
+    "queue",
+    "messagequeue",
+    "jobs",
+    "message-queue",
+    "redis"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/smrchy/rsmq.git"
+  },
+  "bugs": {
+    "url": "https://github.com/smrchy/rsmq/issues"
+  },
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ]
+}
