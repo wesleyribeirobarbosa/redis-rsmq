@@ -2,6 +2,7 @@ const RedisSMQ = require("rsmq");
 const rsmq = new RedisSMQ( {host: "127.0.0.1", port: 6379, ns: "nouvenn-rsmq"} );
 var msgInAll = 0;
 var msgOutAll = 0;
+var timeInSec = 0;
 
 function main() {
     setInterval(() => {
@@ -43,14 +44,15 @@ function main() {
 main();
 
 function redisServerStats(respAll) {
+    timeInSec++;
     console.log(`================= Redis Server Stats ==================`);
     console.log("total input messages: ", respAll.msgsIn);
     console.log("total output messages: ", respAll.msgsOut);
     console.log("input rate (msg/sec): ", respAll.msgsIn - msgInAll);
     console.log("output rate (msg/sec): ", respAll.msgsOut - msgOutAll);
     console.log("current n of messages waiting on the queue: ", respAll.msgQueued);
+    console.log("test time in seconds: ", timeInSec);
     console.log("\n");
-
     msgInAll = respAll.msgsIn;
     msgOutAll = respAll.msgsOut;
 }
