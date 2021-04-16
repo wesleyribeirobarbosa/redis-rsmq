@@ -2,7 +2,7 @@ const RedisSMQ = require("rsmq");
 const rsmq = new RedisSMQ( {host: "127.0.0.1", port: 6379, ns: "nouvenn-rsmq"} );
 
 function main() {
-	const queuename = "queue1";
+	const queuename = "1";
 
 	rsmq.createQueue({ qname: queuename }, (err) => {
 		if (err) {

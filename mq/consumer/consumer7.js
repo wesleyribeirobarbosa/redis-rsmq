@@ -2,7 +2,7 @@ const RedisSMQ = require("rsmq");
 const rsmq = new RedisSMQ( {host: "127.0.0.1", port: 6379, ns: "nouvenn-rsmq"} );
 
 function main() {
-	const queuename = "queue7";
+	const queuename = "7";
 
 	rsmq.createQueue({ qname: queuename }, (err) => {
 		if (err) {
@@ -26,7 +26,7 @@ function receiveMessageLoop(queuename) {
 				return;
 			}
 			if (resp.id) {
-				console.log("received message:", resp.message);
+				console.log("received message!");
 				rsmq.deleteMessage({ qname: queuename, id: resp.id }, (err) => {
 					if (err) {
 						console.error(err);
