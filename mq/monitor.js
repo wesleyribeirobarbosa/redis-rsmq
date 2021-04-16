@@ -45,13 +45,14 @@ main();
 
 function redisServerStats(respAll) {
     timeInSec++;
+    var testTime = new Date(timeInSec * 1000).toISOString().substr(11, 8)
     console.log(`================= Redis Server Stats ==================`);
     console.log("total input messages: ", respAll.msgsIn);
     console.log("total output messages: ", respAll.msgsOut);
     console.log("input rate (msg/sec): ", respAll.msgsIn - msgInAll);
     console.log("output rate (msg/sec): ", respAll.msgsOut - msgOutAll);
     console.log("current n of messages waiting on the queue: ", respAll.msgQueued);
-    console.log("test time in seconds: ", timeInSec);
+    console.log("test time in seconds: ", testTime);
     console.log("\n");
     msgInAll = respAll.msgsIn;
     msgOutAll = respAll.msgsOut;
